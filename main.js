@@ -1,47 +1,57 @@
-// Smooth scrolling for navigation links
+// Toggle mobile navigation
+document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked (mobile)
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+});
+
+// Smooth scrolling for anchor links (if used within pages)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
-        // Close the menu on mobile after clicking a link
-        const navMenu = document.querySelector('.nav-menu');
-        const navToggle = document.querySelector('.nav-toggle');
-        if (navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-        }
     });
 });
 
-// Toggle hamburger menu
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
-navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Example: Dynamically load publications (optional, e.g., from a JSON file or API)
+// Dynamically load publications
 const publications = [
     {
-        authors: "Smith J., Doe J.",
+        authors: "Issakah, O., Kayaba, A., Fiagbe, Y., Akromah, S., Kpare, J., & Asare, E.",
         year: 2025,
-        title: "Advances in Computational Biology",
-        journal: "Journal of Science, 45(3), 123-134",
-        doi: "https://doi.org/10.1000/science.123"
+        title: "Effect of Partial Replacement of CaCO3 with Palm Kernel Shell Particles on the Mechanical Properties of PKS/CaCO3/HDPE Hybrid Composites",
+        journal: "Results in Materials, 100668",
+        doi: "https://doi.org/10.1016/j.rinma.2025.100668"
     },
     {
-        authors: "Johnson M., Doe J.",
-        year: 2024,
-        title: "Machine Learning in Genomics",
-        journal: "Nature Biotech, 12(5), 56-67",
-        doi: "https://doi.org/10.1000/nbt.456"
+        authors: "Jephtah Ogyefo Acquah, Ezekiel Edward Nettey-Oppong, Emmanuel Essel Mensah, Abdul Manan Kayaba, Eric Asare",
+        year: 2025,
+        title: "Development and Characterization of Pineapple Fiber-Based Absorbent Cores for Eco-friendly Sanitary Pads",
+        journal: "Fibers Polym 26, 3227–3241",
+        doi: "https://doi.org/10.1007/s12221-025-00162-y"
+    },
+    {
+        authors: "Abdul-Manan Kayaba, Obed Issakah, Stefania Akromah, EE Nettey-Oppong, Eric Kwame Anokye Asare",
+        year: 2025,
+        title: "Synergistic effects of micro-and macro-sized palm kernel shell fillers on the tensile properties of HDPE composites",
+        journal: "Royal Society Open Science, Volume 12, Issue 7",
+        doi: "https://doi.org/10.1098/rsos.241111"
     }
 ];
 
-// Function to render publications dynamically
 function renderPublications() {
     const pubList = document.getElementById('publication-list');
     if (pubList) {
