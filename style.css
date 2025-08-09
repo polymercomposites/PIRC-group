@@ -1,3 +1,4 @@
+
 /* Reset default styles */
 * {
     margin: 0;
@@ -9,7 +10,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: #080100;
-    background-color: #f9f9f9;
+    background-color: #f9fbfc;
 }
 
 header {
@@ -19,7 +20,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(57, 2, 73, 0.1);
 }
 
 nav {
@@ -35,7 +36,28 @@ nav {
     font-weight: bold;
 }
 
-.nav-toggle {
+.nav-links {
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f3f3f3;
+}
+
+.hamburger {
     display: none;
     background: none;
     border: none;
@@ -43,50 +65,25 @@ nav {
     padding: 0.5rem;
 }
 
-.hamburger, .hamburger::before, .hamburger::after {
-    content: '';
+.hamburger span {
     display: block;
     width: 25px;
     height: 3px;
     background: white;
     margin: 5px 0;
-    transition: transform 0.3s, opacity 0.3s;
+    transition: all 0.3s ease;
 }
 
-.nav-toggle.active .hamburger {
-    background: transparent;
-}
-
-.nav-toggle.active .hamburger::before {
+.hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
 
-.nav-toggle.active .hamburger::after {
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
-}
-
-.nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
-
-.nav-menu li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-    padding: 0.5rem;
-    display: block;
-    font-size: 1rem;
-}
-
-.nav-menu li a:hover {
-    color: #f3f3f3;
-}
-
-main {
-    min-height: calc(100vh - 200px);
 }
 
 section {
@@ -100,61 +97,67 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 1.5rem;
 }
 
 h3 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
-}
-
-.cta-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
 }
 
 .cta-button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background: #990404;
+    background: #c71d06;
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 1rem;
-    min-width: 120px;
-    text-align: center;
+    margin: 0.5rem;
     transition: background 0.3s;
-    touch-action: manipulation;
 }
 
 .cta-button:hover {
     background: #004aad;
 }
 
-.pi-content, .members-grid, #publication-list, #funding ul, .news-item, .gallery-grid {
+.pi-content, .members-grid, #publication-list, #funding ul, .news-item {
     margin-top: 1rem;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.gallery-grid img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .members-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
 }
 
 .member {
     text-align: center;
     padding: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid #f6f6f7;
     border-radius: 8px;
-    background: white;
+    background: rgb(253, 255, 255);
     transition: transform 0.3s;
 }
 
@@ -165,38 +168,14 @@ h3 {
 .member img {
     width: 120px;
     height: 120px;
-    border-radius: 8px;
+    border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     border: 2px solid #eff1f5;
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-
-.gallery-item {
-    text-align: center;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background: white;
-}
-
-.gallery-item img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-    margin-bottom: 0.5rem;
-}
-
 #publication-list li, #funding ul li {
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
 }
 
 #publication-list a, #funding a {
@@ -210,7 +189,7 @@ h3 {
 
 .news-item {
     margin-bottom: 1.5rem;
-    padding: 1rem;
+    padding: 0.75rem;
     border-left: 4px solid #003087;
     background: white;
 }
@@ -220,7 +199,7 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
-    font-size: 0.9rem;
+    margin-top: 2rem;
 }
 
 footer a {
@@ -232,35 +211,43 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Mobile styles */
+/* Responsive Design */
 @media (max-width: 768px) {
-    .nav-toggle {
+    .hamburger {
         display: block;
     }
 
-    .nav-menu {
+    .nav-links {
         display: none;
-        flex-direction: column;
         width: 100%;
-        background: #003087;
         position: absolute;
-        top: 60px;
+        top: 100%;
         left: 0;
+        background: #990404;
         padding: 1rem;
         z-index: 99;
     }
 
-    .nav-menu.active {
-        display: flex;
+    .nav-links.active {
+        display: block;
     }
 
-    .nav-menu li a {
-        padding: 0.75rem;
-        font-size: 1.1rem;
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+        padding: 0.5rem;
+        display: block;
     }
 
     nav {
+        flex-direction: row;
         align-items: center;
+        padding: 0.5rem;
     }
 
     .logo {
@@ -268,25 +255,45 @@ footer a:hover {
     }
 
     section {
-        padding: 1.5rem 0.75rem;
+        padding: 1.5rem 0.5rem;
     }
 
     h1 {
         font-size: 1.8rem;
+        margin-bottom: 0.75rem;
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
     }
 
     h3 {
         font-size: 1.2rem;
+        margin-bottom: 0.75rem;
     }
 
     .cta-button {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
-        min-width: 100px;
+    }
+
+    .gallery-grid {
+        gap: 10px;
+    }
+
+    .gallery-grid img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .members-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .member {
+        padding: 0.75rem;
     }
 
     .member img {
@@ -294,32 +301,24 @@ footer a:hover {
         height: 100px;
     }
 
-    .members-grid, .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    .news-item {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    footer {
+        padding: 1rem;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     .logo {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
-    .nav-toggle {
-        padding: 0.25rem;
-    }
-
-    .hamburger, .hamburger::before, .hamburger::after {
-        width: 20px;
-        height: 2px;
-    }
-
-    .nav-menu li a {
+    nav ul li a {
         font-size: 0.9rem;
-    }
-
-    section {
-        padding: 1rem 0.5rem;
     }
 
     h1 {
@@ -327,16 +326,16 @@ footer a:hover {
     }
 
     h2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
+    .cta-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
     }
 
-    .gallery-item img {
-        max-width: 150px;
+    .gallery-grid img {
+        max-width: 90%;
     }
 
     .member img {
