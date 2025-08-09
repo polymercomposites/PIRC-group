@@ -1,6 +1,6 @@
-# Research Group Website
+# Polymer Innovation research & Consultancy (PIRC) Group Website
 
-This is the official website for the Research Group at University XYZ, showcasing our Principal Investigator, team members, research, publications, funding, and news.
+This is the official website for the PIRC Research Group at Kwame Nkrumah University of Science and Technology, showcasing our Principal Investigator, team members, research, publications, funding, and news.
 
 ## Setup Instructions
 
