@@ -89,10 +89,15 @@ main {
     min-height: calc(100vh - 200px);
 }
 
-section {
+.section {
+    display: none;
     padding: 2rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.section.active {
+    display: block;
 }
 
 h1, h2, h3 {
@@ -267,7 +272,7 @@ footer a:hover {
         font-size: 1.5rem;
     }
 
-    section {
+    .section {
         padding: 1.5rem 0.75rem;
     }
 
@@ -318,7 +323,7 @@ footer a:hover {
         font-size: 0.9rem;
     }
 
-    section {
+    .section {
         padding: 1rem 0.5rem;
     }
 
