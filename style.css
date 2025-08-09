@@ -8,18 +8,18 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: #080100;
-    background-color: #f9fbfc;
+    color: #333;
+    background-color: #f9f9f9;
 }
 
 header {
-    background: #990404;
+    background: #003087;
     color: white;
     padding: 1rem;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 4px rgba(57, 2, 73, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -35,21 +35,58 @@ nav {
     font-weight: bold;
 }
 
-nav ul {
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger, .hamburger::before, .hamburger::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-toggle.active .hamburger {
+    background: transparent;
+}
+
+.nav-toggle.active .hamburger::before {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active .hamburger::after {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-menu {
     list-style: none;
     display: flex;
     gap: 1.5rem;
 }
 
-nav ul li a {
+.nav-menu li a {
     color: white;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
+    padding: 0.5rem;
+    display: block;
+    font-size: 1rem;
 }
 
-nav ul li a:hover {
-    color: #f3f3f3;
+.nav-menu li a:hover {
+    color: #ffd700;
+}
+
+main {
+    min-height: calc(100vh - 200px);
 }
 
 section {
@@ -59,71 +96,65 @@ section {
 }
 
 h1, h2, h3 {
-    color: #990404;
+    color: #003087;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 1.5rem;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
 }
 
 .cta-button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background: #c71d06;
+    background: #003087;
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    margin: 0.5rem;
+    font-size: 1rem;
+    min-width: 120px;
+    text-align: center;
     transition: background 0.3s;
+    touch-action: manipulation;
 }
 
 .cta-button:hover {
     background: #004aad;
 }
 
-.pi-content, .members-grid, #publication-list, #funding ul, .news-item {
+.pi-content, .members-grid, #publication-list, #funding ul, .news-item, .gallery-grid {
     margin-top: 1rem;
-}
-
-.gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-}
-
-.gallery-grid img {
-    width: 100%;
-    max-width: 220px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .members-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
 }
 
 .member {
     text-align: center;
     padding: 1rem;
-    border: 1px solid #f6f6f7;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    background: rgb(253, 255, 255);
+    background: white;
     transition: transform 0.3s;
 }
 
@@ -136,12 +167,36 @@ h3 {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 0.75rem;
-    border: 2px solid #eff1f5;
+    margin-bottom: 1rem;
+    border: 2px solid #003087;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+}
+
+.gallery-item img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
 }
 
 #publication-list li, #funding ul li {
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
 }
 
 #publication-list a, #funding a {
@@ -155,17 +210,17 @@ h3 {
 
 .news-item {
     margin-bottom: 1.5rem;
-    padding: 0.75rem;
+    padding: 1rem;
     border-left: 4px solid #003087;
     background: white;
 }
 
 footer {
-    background: #920303;
+    background: #003087;
     color: white;
     text-align: center;
     padding: 1rem;
-    margin-top: 2rem;
+    font-size: 0.9rem;
 }
 
 footer a {
@@ -177,71 +232,52 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Responsive Design */
+/* Mobile styles */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.5rem;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.75rem;
-    }
-
-    nav ul li a {
-        font-size: 1rem;
-        padding: 0.5rem;
+    .nav-toggle {
         display: block;
     }
 
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #003087;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 1rem;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li a {
+        padding: 0.75rem;
+        font-size: 1.1rem;
+    }
+
     section {
-        padding: 1.5rem 0.5rem;
+        padding: 1.5rem 0.75rem;
     }
 
     h1 {
         font-size: 1.8rem;
-        margin-bottom: 0.75rem;
     }
 
     h2 {
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
+        font-size: 1.5rem;
     }
 
     h3 {
         font-size: 1.2rem;
-        margin-bottom: 0.75rem;
     }
 
     .cta-button {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
-    }
-
-    .gallery-grid {
-        gap: 10px;
-    }
-
-    .gallery-grid img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .members-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .member {
-        padding: 0.75rem;
+        min-width: 100px;
     }
 
     .member img {
@@ -249,24 +285,28 @@ footer a:hover {
         height: 100px;
     }
 
-    .news-item {
-        padding: 0.5rem;
-        margin-bottom: 1rem;
-    }
-
-    footer {
-        padding: 1rem;
-        font-size: 0.9rem;
+    .members-grid, .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .logo {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 
-    nav ul li a {
-        font-size: 0.9rem;
+    .nav-toggle {
+        padding: 0.25rem;
+    }
+
+    .hamburger, .hamburger::before, .hamburger::after {
+        width: 20px;
+        height: 2px;
+    }
+
+    section {
+        padding: 1rem 0.5rem;
     }
 
     h1 {
@@ -274,20 +314,15 @@ footer a:hover {
     }
 
     h2 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
-    .cta-button {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.85rem;
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .gallery-grid img {
-        max-width: 90%;
-    }
-
-    .member img {
-        width: 80px;
-        height: 80px;
+    .gallery-item img {
+        max-width: 150px;
     }
 }

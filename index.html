@@ -2,70 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Official website of the Research Group at University XYZ, led by Dr. John Doe, focusing on computational biology and data science.">
-    <meta name="keywords" content="research group, computational biology, bioinformatics, data science, University XYZ">
-    <meta name="author" content="Research Group">
-    <title>Research Group - Kwame Nkrumah University of Science and Technology</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Official website of the PIRC Group at Kwame Nkrumah University of Science and Technology, focusing on polymer innovation and consultancy.">
+    <meta name="keywords" content="PIRC Group, polymer innovation, materials engineering, KNUST, sustainable composites">
+    <meta name="author" content="PIRC Group">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>PIRC Group - KNUST</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
     <header>
     <nav>
         <div class="logo">PIRC Group</div>
-        <ul>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="pi.html">PI</a></li>
             <li><a href="members.html">Members</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="publications.html">Publications</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
             <li><a href="funding.html">Funding</a></li>
             <li><a href="news.html">News</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
         </ul>
     </nav>
 </header>
-   <section id="home" style="padding: 60px 0;">
-    <div style="display: flex; align-items: center; gap: 24px;">
-        <img src="hed.jpg" alt="Group Logo" style="width:80px; height:80px; object-fit:contain; border-radius:8px;">
-        <h1 style="margin: 0;">Welcome to PIRC</h1>
-    </div>
-    <p>At Polymer Innovation Research and Consultancy, we assist clients in selecting the most suitable polymers for their specific applications. Our team of experts has extensive knowledge of polymer properties, cost, and performance requirements, ensuring that clients recieve tailored solutions that meet their needs.</p>
-    <br>
-    <p><strong>Our services include:</strong>
-    <li>Optimized materials selection and development</li>
-    <li>Polymer processing and manufacturing</li>
-    <li>Polymer material characterization and testing</li>
-    <li>Research and development of new polymer materials</li>
-    <li>Consultation on polymer applications and performance</li>
-    <li>Collaboration with industry partners for innovative solutions</li>
-    <br>
-    <p>We are committed to delivering high-quality results and helping our clients achieve their goals
-    </p>
-    <br>
-    <a href="members.html" class="cta-button">Meet Our Team</a>
-    <a href="funding.html" class="cta-button">Contact Us</a>
-</section>
- <footer style="margin-top: auto;">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
-        <!-- Left corner logo(s) -->
-        <div style="display: flex; align-items: center;">
-            <img src="logo-knustR.png" alt="Group Logo" style="width:100px; height:130px; object-fit:cover; border-radius:8px; margin-right:20px;">
-            <img src="coeR.png" alt="PI Photo" style="width:100px; height:100px; object-fit:cover; border-radius:8px; margin-right:20px;">
-        </div>
-        <!-- Footer text -->
-        <div style="flex:1; text-align:center;">
-            <p>&copy; 2025 PIRC Group, Kwame Nkrumah University of Science and Technology. All rights reserved.</p>
-            <p>
-                <a href="mailto:ekaasare@knust.edu.gh">Contact Us</a> |
-                <a href="http://matesa.unaux.com/Programs.html?i=1" target="_blank">Kwame Nkrumah University of Science and Technology</a>
-            </p>
-        </div>
-        <!-- Right corner logo -->
-        <img src="matR.png" alt="Right Logo" style="width:100px; height:100px; object-fit:cover; border-radius:8px; margin-left:20px;">
-    </div>
-    <script src="js/main.js"></script>
+    <main>
+        <section id="home">
+            <h1>Welcome to PIRC</h1>
+            <p>At Polymer Innovation Research and Consultancy, we assist clients in selecting the most suitable polymers for their specific applications. Our team of experts has extensive knowledge of polymer properties, cost, and performance requirements, ensuring that clients receive tailored solutions that meet their needs.</p>
+            <h2>Our Services</h2>
+            <ul>
+                <li>Optimized materials selection and development</li>
+                <li>Polymer processing and manufacturing</li>
+                <li>Polymer material characterization and testing</li>
+                <li>Research and development of new polymer materials</li>
+                <li>Consultation on polymer applications and performance</li>
+                <li>Collaboration with industry partners for innovative solutions</li>
+            </ul>
+            <p>We are committed to delivering high-quality results and helping our clients achieve their goals.</p>
+            <div class="cta-buttons">
+                <a href="members.html" class="cta-button">Meet Our Team</a>
+                <a href="funding.html" class="cta-button">Contact Us</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+    <p>&copy; 2025 PIRC Group, Kwame Nkrumah University of Science and Technology. All rights reserved.</p>
+    <p><a href="mailto:ekaasare@knust.edu.gh">Contact Us</a> | <a href="https://www.knust.edu.gh" target="_blank">Kwame Nkrumah University of Science and Technology</a></p>
 </footer>
+    <script src="js/main.js"></script>
 </body>
 </html>
