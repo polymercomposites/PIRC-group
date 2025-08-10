@@ -1,23 +1,28 @@
-// Toggle section visibility for navigation links
+// Toggle section visibility for anchor links (same-page navigation)
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        if (targetSection) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            // Show the target section
-            targetSection.classList.add('active');
-            // Scroll to top to ensure visibility (optional, as only one section is shown)
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        const href = this.getAttribute('href');
+        
+        // Only prevent default if it's an anchor link (starts with #)
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const targetSection = document.querySelector(href);
+            if (targetSection) {
+                // Hide all sections
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                // Show the target section
+                targetSection.classList.add('active');
+                // Scroll to top (optional)
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
         }
-        // Close the menu on mobile after clicking a link
+        
+        // Close the mobile menu after clicking a link
         const navMenu = document.querySelector('.nav-menu');
         const navToggle = document.querySelector('.nav-toggle');
         if (navMenu.classList.contains('active')) {
@@ -27,13 +32,15 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Toggle hamburger menu
+// Toggle hamburger menu (mobile navigation)
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
-navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+}
 
 // Dynamically load publications
 const publications = [
@@ -53,7 +60,7 @@ const publications = [
     }
 ];
 
-// Function to render publications dynamically
+// Render publications on page load
 function renderPublications() {
     const pubList = document.getElementById('publication-list');
     if (pubList) {
@@ -66,8 +73,9 @@ function renderPublications() {
     }
 }
 
-// Show the home section and render publications on page load
+// Initialize page (show home section & load publications)
 window.onload = () => {
-    document.querySelector('#home').classList.add('active');
+    const homeSection = document.querySelector('#home');
+    if (homeSection) homeSection.classList.add('active');
     renderPublications();
 };
