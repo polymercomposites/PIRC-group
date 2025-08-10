@@ -25,28 +25,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load publications if on publications page
     const pubList = document.getElementById('publication-list');
     if (pubList) {
-        // Add all your publications here as objects in the array
+        // Publication list updated to match publication.html
         const publications = [
             {
-                authors: "Asare, E.K., Owusu, F., & Mensah, A.",
-                year: 2024,
-                title: "Polymer composites for sustainable development",
-                journal: "Journal of Polymer Science",
-                doi: "https://doi.org/10.1234/jps.2024.5678"
+                authors: "Issakah, O., Kayaba, A., Fiagbe, Y., Akromah, S., Kpare, J., & Asare, E.",
+                year: 2025,
+                title: "Effect of Partial Replacement of CaCO3 with Palm Kernel Shell Particles on the Mechanical Properties of PKS/CaCO3/HDPE Hybrid Composites.",
+                journal: "Results in Materials",
+                extra: "100668",
+                doi: "https://doi.org/10.1016/j.rinma.2025.100668"
             },
             {
-                authors: "Owusu, F., Asare, E.K.",
-                year: 2023,
-                title: "Advanced materials for green energy",
-                journal: "Advanced Energy Materials",
-                doi: "https://doi.org/10.5678/aem.2023.1234"
+                authors: "Jephtah Ogyefo Acquah, Ezekiel Edward Nettey-Oppong, Emmanuel Essel Mensah, Abdul Manan Kayaba, Eric Asare.",
+                year: 2025,
+                title: "Development and Characterization of Pineapple Fiber-Based Absorbent Cores for Eco-friendly Sanitary Pads.",
+                journal: "Fibers Polym",
+                extra: "26, 3227–3241",
+                doi: "https://doi.org/10.1007/s12221-025-00162-y"
             },
             {
-                authors: "Mensah, A. & Asare, E.K.",
-                year: 2022,
-                title: "Recycling of plastic waste in Africa",
-                journal: "Waste Management",
-                doi: "https://doi.org/10.4321/wm.2022.4321"
+                authors: "Abdul-Manan Kayaba, Obed Issakah, Stefania Akromah, EE Nettey-Oppong, Eric Kwame Anokye Asare.",
+                year: 2025,
+                title: "Synergistic effects of micro-and macro-sized palm kernel shell fillers on the tensile properties of HDPE composites.",
+                journal: "Royal Society Open Science",
+                extra: "Volume 12, Issue 7",
+                doi: "https://doi.org/10.1098/rsos.241111"
             }
             // Add more publication objects here as needed
         ];
@@ -56,9 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
         publications.forEach(pub => {
             const li = document.createElement('li');
             li.innerHTML = `
-                <strong>${pub.authors}</strong> (${pub.year}). 
-                "${pub.title}." 
-                <em>${pub.journal}</em>. 
+                <strong>${pub.authors}</strong> (${pub.year}).<br>
+                "${pub.title}"<br>
+                <em>${pub.journal}</em>${pub.extra ? ', ' + pub.extra : ''}. 
                 <a href="${pub.doi}" target="_blank">DOI</a>
             `;
             pubList.appendChild(li);
