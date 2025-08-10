@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         publications.forEach(pub => {
             const li = document.createElement('li');
             li.innerHTML = `
-                <strong>${pub.authors}</strong> (${pub.year}).<br>
+                ${pub.authors} (${pub.year}).<br>
                 "${pub.title}"<br>
                 <em>${pub.journal}</em>${pub.extra ? ', ' + pub.extra : ''}. 
                 <a href="${pub.doi}" target="_blank">DOI</a>
