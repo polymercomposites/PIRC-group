@@ -1,40 +1,7 @@
-// Toggle section visibility for anchor links (same-page navigation)
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        
-        // Only prevent default if it's an anchor link (starts with #)
-        if (href.startsWith('#')) {
-            e.preventDefault();
-            const targetSection = document.querySelector(href);
-            if (targetSection) {
-                // Hide all sections
-                document.querySelectorAll('.section').forEach(section => {
-                    section.classList.remove('active');
-                });
-                // Show the target section
-                targetSection.classList.add('active');
-                // Scroll to top (optional)
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
-        }
-        
-        // Close the mobile menu after clicking a link
-        const navMenu = document.querySelector('.nav-menu');
-        const navToggle = document.querySelector('.nav-toggle');
-        if (navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-        }
-    });
-});
-
-// Toggle hamburger menu (mobile navigation)
+// Mobile menu toggle functionality
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
+
 if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
         navToggle.classList.toggle('active');
@@ -42,26 +9,42 @@ if (navToggle && navMenu) {
     });
 }
 
-// Dynamically load publications
-const publications = [
-    {
-        authors: "Smith J., Doe J.",
-        year: 2025,
-        title: "Advances in Computational Biology",
-        journal: "Journal of Science, 45(3), 123-134",
-        doi: "https://doi.org/10.1000/science.123"
-    },
-    {
-        authors: "Johnson M., Doe J.",
-        year: 2024,
-        title: "Machine Learning in Genomics",
-        journal: "Nature Biotech, 12(5), 56-67",
-        doi: "https://doi.org/10.1000/nbt.456"
-    }
-];
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+        }
+    });
+});
 
-// Render publications on page load
+// Dynamically load publications (only on publications.html)
 function renderPublications() {
+    const publications = [
+        {
+            authors: "Issakah, O., Kayaba, A., Fiagbe, Y., Akromah, S., Kpare, J., & Asare, E.",
+            year: 2025,
+            title: "Effect of Partial Replacement of CaCO3 with Palm Kernel Shell Particles on the Mechanical Properties of PKS/CaCO3/HDPE Hybrid Composites",
+            journal: "Results in Materials, 100668",
+            doi: "https://doi.org/10.1016/j.rinma.2025.100668"
+        },
+        {
+            authors: "Jephtah Ogyefo Acquah, Ezekiel Edward Nettey-Oppong, Emmanuel Essel Mensah, Abdul Manan Kayaba, Eric Asare",
+            year: 2025,
+            title: "Development and Characterization of Pineapple Fiber-Based Absorbent Cores for Eco-friendly Sanitary Pads",
+            journal: "Fibers Polym 26, 3227-3241",
+            doi: "https://doi.org/10.1007/s12221-025-00162-y"
+        },
+        {
+            authors: "Abdul-Manan Kayaba, Obed Issakah, Stefania Akromah, EE Nettey-Oppong, Eric Kwame Anokye Asare",
+            year: 2025,
+            title: "Synergistic effects of micro-and macro-sized palm kernel shell fillers on the tensile properties of HDPE composites",
+            journal: "Royal Society Open Science, Volume 12, Issue 7",
+            doi: "https://doi.org/10.1098/rsos.241111"
+        }
+    ];
+
     const pubList = document.getElementById('publication-list');
     if (pubList) {
         pubList.innerHTML = '';
@@ -73,9 +56,7 @@ function renderPublications() {
     }
 }
 
-// Initialize page (show home section & load publications)
-window.onload = () => {
-    const homeSection = document.querySelector('#home');
-    if (homeSection) homeSection.classList.add('active');
+// Initialize page
+document.addEventListener('DOMContentLoaded', () => {
     renderPublications();
-};
+});
