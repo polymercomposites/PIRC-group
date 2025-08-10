@@ -24,23 +24,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load publications if on publications page
     if (document.getElementById('publication-list')) {
-        const publications = [
-            {
-                authors: "Issakah, O., Kayaba, A., Fiagbe, Y., Akromah, S., Kpare, J., & Asare, E.",
-                year: 2025,
-                title: "Effect of Partial Replacement of CaCO3 with Palm Kernel Shell Particles on the Mechanical Properties of PKS/CaCO3/HDPE Hybrid Composites",
-                journal: "Results in Materials, 100668",
-                doi: "https://doi.org/10.1016/j.rinma.2025.100668"
-            },
-            // Add other publications here
-        ];
+// main.js
 
-        const pubList = document.getElementById('publication-list');
+// Option 1: Add all your publications here as objects in the array
+         const publications = [
+    {
+        authors: "Asare, E.K., Owusu, F., & Mensah, A.",
+        year: 2024,
+        title: "Polymer composites for sustainable development",
+        journal: "Journal of Polymer Science",
+        doi: "https://doi.org/10.1234/jps.2024.5678"
+    },
+    {
+        authors: "Owusu, F., Asare, E.K.",
+        year: 2023,
+        title: "Advanced materials for green energy",
+        journal: "Advanced Energy Materials",
+        doi: "https://doi.org/10.5678/aem.2023.1234"
+    },
+    {
+        authors: "Mensah, A. & Asare, E.K.",
+        year: 2022,
+        title: "Recycling of plastic waste in Africa",
+        journal: "Waste Management",
+        doi: "https://doi.org/10.4321/wm.2022.4321"
+    }
+    // Add more publication objects here as needed
+];
+
+// Dynamically populate the publications list on publications.html
+document.addEventListener("DOMContentLoaded", function() {
+    const pubList = document.getElementById('publication-list');
+    if (pubList && Array.isArray(publications)) {
         pubList.innerHTML = '';
         publications.forEach(pub => {
             const li = document.createElement('li');
-            li.innerHTML = `${pub.authors} (${pub.year}). "${pub.title}." <em>${pub.journal}</em>. <a href="${pub.doi}" target="_blank">DOI</a>`;
+            li.innerHTML = `
+                <strong>${pub.authors}</strong> (${pub.year}). 
+                "${pub.title}." 
+                <em>${pub.journal}</em>. 
+                <a href="${pub.doi}" target="_blank">DOI</a>
+            `;
             pubList.appendChild(li);
+        });
+    }
+
+    // Navigation hamburger toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('nav-menu_visible');
         });
     }
 });
