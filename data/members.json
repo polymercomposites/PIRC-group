@@ -3,7 +3,7 @@
     "name": "Issakah Obed",
     "degree": "BSc",
     "role": "Researcher",
-    "image": "obed.png",
+    "image": "assets/people/obed.webp",
     "initials": "IO",
     "research": "AI/ML for composite design, large language models for materials discovery, computational chemistry, organic electronics and electrocatalysis.",
     "affiliation": "Kwame Nkrumah University of Science and Technology, Ghana"
@@ -12,7 +12,7 @@
     "name": "Abdul-Manan Kayaba",
     "degree": "PhD",
     "role": "Researcher",
-    "image": "Manan.jpg",
+    "image": "assets/people/manan.webp",
     "initials": "AK",
     "research": "Advanced manufacturing of sustainable composites, biobased materials and sustainable development.",
     "affiliation": "University of Tennessee-Knoxville, USA"
