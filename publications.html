@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Selected publications from the PIRC Group at Kwame Nkrumah University of Science and Technology.">
+    <meta name="author" content="PIRC Group">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#8b1538">
+    <link rel="canonical" href="https://polymercomposites.github.io/PIRC-group/publications.html">
+
+    <meta property="og:title" content="Publications | PIRC Group">
+    <meta property="og:description" content="Selected peer-reviewed publications from PIRC researchers in polymer composites, sustainable materials and engineered products.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://polymercomposites.github.io/PIRC-group/publications.html">
+    <meta property="og:image" content="https://polymercomposites.github.io/PIRC-group/gal1.jpg">
+    <meta property="og:site_name" content="PIRC Group">
+    <meta name="twitter:card" content="summary_large_image">
+
     <title>Publications | PIRC Group</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="enhancements.css">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -17,26 +33,20 @@
 
         <section class="page-section">
             <div class="container">
-                <div class="page-section-header"><p class="eyebrow">Selected work</p><h2>Recent publications.</h2><p>Use the DOI links to access the publisher record for each paper.</p></div>
-                <div class="publications-list-v2">
-                    <article class="publication-row">
-                        <div><span class="publication-year-badge">2025</span></div>
-                        <div><h2>Effect of Partial Replacement of CaCO3 with Palm Kernel Shell Particles on the Mechanical Properties of PKS/CaCO3/HDPE Hybrid Composites</h2><p class="publication-authors">Issakah, O., Kayaba, A., Fiagbe, Y., Akromah, S., Kpare, J., &amp; Asare, E.</p><p class="publication-meta"><em>Results in Materials</em>, 100668</p></div>
-                        <a class="publication-link" href="https://doi.org/10.1016/j.rinma.2025.100668" target="_blank" rel="noopener noreferrer">DOI ↗</a>
-                    </article>
+                <div class="page-section-header"><p class="eyebrow">Selected work</p><h2>Recent publications.</h2><p>Search by title, author or journal, or filter by publication year.</p></div>
 
-                    <article class="publication-row">
-                        <div><span class="publication-year-badge">2025</span></div>
-                        <div><h2>Development and Characterization of Pineapple Fiber-Based Absorbent Cores for Eco-friendly Sanitary Pads</h2><p class="publication-authors">Jephtah Ogyefo Acquah, Ezekiel Edward Nettey-Oppong, Emmanuel Essel Mensah, Abdul Manan Kayaba, Eric Asare.</p><p class="publication-meta"><em>Fibers and Polymers</em>, 26, 3227–3241</p></div>
-                        <a class="publication-link" href="https://doi.org/10.1007/s12221-025-00162-y" target="_blank" rel="noopener noreferrer">DOI ↗</a>
-                    </article>
-
-                    <article class="publication-row">
-                        <div><span class="publication-year-badge">2025</span></div>
-                        <div><h2>Synergistic effects of micro- and macro-sized palm kernel shell fillers on the tensile properties of HDPE composites</h2><p class="publication-authors">Abdul-Manan Kayaba, Obed Issakah, Stefania Akromah, E. E. Nettey-Oppong, Eric Kwame Anokye Asare.</p><p class="publication-meta"><em>Royal Society Open Science</em>, Volume 12, Issue 7</p></div>
-                        <a class="publication-link" href="https://doi.org/10.1098/rsos.241111" target="_blank" rel="noopener noreferrer">DOI ↗</a>
-                    </article>
+                <div class="content-toolbar" role="search" aria-label="Filter publications">
+                    <div class="content-toolbar-group">
+                        <input id="publication-search" class="search-field" type="search" placeholder="Search title, author or journal" aria-label="Search publications">
+                        <select id="publication-year-filter" class="filter-select" aria-label="Filter publications by year">
+                            <option value="">All years</option>
+                        </select>
+                    </div>
+                    <p id="publication-count" class="result-count" aria-live="polite"></p>
                 </div>
+
+                <div id="publication-list" class="publications-list-v2" aria-live="polite"></div>
+                <noscript><p class="data-status error">JavaScript is required to load the publication directory.</p></noscript>
             </div>
         </section>
     </main>
