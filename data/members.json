@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Issakah Obed",
+    "degree": "BSc",
+    "role": "Researcher",
+    "image": "obed.png",
+    "initials": "IO",
+    "research": "AI/ML for composite design, large language models for materials discovery, computational chemistry, organic electronics and electrocatalysis.",
+    "affiliation": "Kwame Nkrumah University of Science and Technology, Ghana"
+  },
+  {
+    "name": "Abdul-Manan Kayaba",
+    "degree": "PhD",
+    "role": "Researcher",
+    "image": "Manan.jpg",
+    "initials": "AK",
+    "research": "Advanced manufacturing of sustainable composites, biobased materials and sustainable development.",
+    "affiliation": "University of Tennessee-Knoxville, USA"
+  },
+  {
+    "name": "Stephania Akromah",
+    "degree": "PhD",
+    "role": "Researcher",
+    "image": "stef.jpg",
+    "initials": "SA",
+    "research": "Renewable materials, sustainable development, circular economy, life-cycle assessment, biobased materials and biotechnology.",
+    "affiliation": "University of Bristol, UK"
+  },
+  {
+    "name": "Emmanuel Essel",
+    "degree": "MSc",
+    "role": "Researcher",
+    "image": "esse.jpg",
+    "initials": "EE",
+    "research": "Computational materials engineering, mechanical behavior of materials, and sustainable and smart materials.",
+    "affiliation": "Egypt-Japan University of Science and Technology, Egypt"
+  },
+  {
+    "name": "Ezekiel Edward Nettey-Oppong",
+    "degree": "PhD",
+    "role": "Researcher",
+    "image": "ezk.jpg",
+    "initials": "EN",
+    "research": "Computational materials, smart sensors, IoT and AI, biomaterials, molecular dynamics, multiscale simulation, characterization and product development.",
+    "affiliation": "Yonsei University, South Korea"
+  },
+  {
+    "name": "Emmanuel Afreh",
+    "degree": "PhD",
+    "role": "Researcher",
+    "image": null,
+    "initials": "EA",
+    "research": "All-solid-state batteries, conductive polymer electrolytes, and polymer-based thermoelectric materials and cooling devices.",
+    "affiliation": "Notre Dame, USA"
+  },
+  {
+    "name": "Jude Kpare",
+    "degree": "PhD",
+    "role": "Researcher",
+    "image": "ju.jpg",
+    "initials": "JK",
+    "research": "Organic semiconductor phase tuning, energy conversion and energy storage.",
+    "affiliation": "Georgia Institute of Technology, USA"
+  }
+]
