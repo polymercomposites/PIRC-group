@@ -15,7 +15,8 @@ const publicPages = [
   'publications.html',
   'funding.html',
   'news.html',
-  'gallery.html'
+  'gallery.html',
+  'contact.html'
 ];
 
 const requiredFiles = [
