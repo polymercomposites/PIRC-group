@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://polymercomposites.github.io/PIRC-group/sitemap.xml
