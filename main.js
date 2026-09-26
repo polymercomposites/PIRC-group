@@ -1,5 +1,72 @@
 // PIRC shared site interactions and data-driven content
 
+// Apply the selected editorial V3 system to all interior pages before
+// DOMContentLoaded. The homepage loads its V3 stylesheet directly.
+(function initializeInteriorV3Shell() {
+    if (!document.body || document.body.classList.contains('home-v3')) return;
+
+    document.body.classList.add('interior-v3');
+
+    if (!document.querySelector('link[href="interior-v3.css"]')) {
+        const stylesheet = document.createElement('link');
+        stylesheet.rel = 'stylesheet';
+        stylesheet.href = 'interior-v3.css';
+        document.head.appendChild(stylesheet);
+    }
+
+    const brand = document.querySelector('.site-header .brand');
+    if (brand) {
+        brand.className = 'v3-brand';
+        brand.setAttribute('aria-label', 'PIRC Group home');
+        brand.innerHTML = `
+            <span class="v3-brand-word">PIRC</span>
+            <span class="v3-brand-group">Group</span>
+            <span class="v3-brand-divider" aria-hidden="true"></span>
+            <span class="v3-brand-copy">
+                <span>Polymer Innovation<br>Research &amp; Consultancy</span>
+                <small>KNUST · Kumasi, Ghana</small>
+            </span>`;
+    }
+
+    const navMenu = document.querySelector('.site-header .nav-menu');
+    if (navMenu) {
+        const desiredLinks = [
+            ['index.html', 'Home'],
+            ['pi.html', 'PI'],
+            ['members.html', 'People'],
+            ['research.html', 'Research'],
+            ['publications.html', 'Publications'],
+            ['funding.html', 'Opportunities'],
+            ['news.html', 'News'],
+            ['gallery.html', 'Gallery'],
+            ['projects.html', 'Projects'],
+            ['contact.html', 'Contact']
+        ];
+
+        const existing = new Map(
+            [...navMenu.querySelectorAll('a')].map((link) => [link.getAttribute('href'), link])
+        );
+
+        desiredLinks.forEach(([href, label]) => {
+            if (existing.has(href)) return;
+            const item = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = href;
+            link.textContent = label;
+            item.appendChild(link);
+            navMenu.appendChild(item);
+        });
+
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        navMenu.querySelectorAll('a').forEach((link) => {
+            const isCurrent = link.getAttribute('href') === currentPage;
+            link.classList.toggle('active', isCurrent);
+            if (isCurrent) link.setAttribute('aria-current', 'page');
+            else link.removeAttribute('aria-current');
+        });
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', function () {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
