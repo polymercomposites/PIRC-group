@@ -23,7 +23,7 @@ https://polymercomposites.github.io/PIRC-group/
 PIRC-group/
 ├── index.html                 # Homepage
 ├── pi.html                    # Principal Investigator
-├── members.html               # People directory
+├── members.html               # Searchable people directory
 ├── research.html              # Research themes
 ├── publications.html          # Searchable publications
 ├── funding.html               # Opportunities and funding
@@ -37,11 +37,13 @@ PIRC-group/
 ├── data/
 │   ├── members.json           # People data
 │   └── publications.json      # Publication data
+├── assets/people/             # Optimized member portraits
+├── scripts/check-site.mjs     # Zero-dependency site integrity checker
 ├── favicon.svg                # PIRC favicon
 ├── site.webmanifest           # Web app metadata
 ├── robots.txt                 # Search crawler rules
 ├── sitemap.xml                # Search sitemap
-└── .github/                   # GitHub Pages workflow
+└── .github/workflows/         # Pages deployment + quality checks
 ```
 
 ## Updating people
@@ -55,7 +57,7 @@ Each member supports these fields:
   "name": "Example Researcher",
   "degree": "PhD",
   "role": "Researcher",
-  "image": "example.jpg",
+  "image": "assets/people/example.webp",
   "initials": "ER",
   "research": "Research interests and expertise.",
   "affiliation": "Institution, Country"
@@ -90,7 +92,7 @@ The publications page automatically builds the year filter and search index from
 - Principal Investigator profile: `pi.html`
 - Homepage featured content: `index.html`
 
-## Local or Codespaces preview
+## Codespaces or local preview
 
 From the repository root:
 
@@ -102,16 +104,31 @@ Then open port `8000` in the browser. In GitHub Codespaces, use the **Ports** pa
 
 Because members and publications are loaded with `fetch()`, preview the site through an HTTP server rather than opening the HTML files directly with `file://`.
 
+## Quality checks
+
+Run the site integrity checker before merging:
+
+```bash
+node scripts/check-site.mjs
+```
+
+It checks:
+
+- required website files
+- broken internal `href` and `src` references
+- duplicate element IDs
+- core page metadata
+- member/publication JSON validity
+- member image references
+- DOI URL format
+- sitemap/robots consistency
+- oversized images (reported as non-blocking warnings)
+
+The same checker runs automatically in GitHub Actions on the V2 branch, on `main`, and on pull requests targeting `main`.
+
 ## Development workflow
 
 Production is deployed from `main`. Make larger changes on a feature branch, preview and review them there, and merge only after approval.
-
-Example:
-
-```bash
-git switch -c upgrade/example-change
-git push -u origin upgrade/example-change
-```
 
 For the current redesign, development is taking place on:
 
@@ -140,7 +157,7 @@ The V2 site includes:
 
 Member and gallery images should be compressed before adding them to the repository. As a general target, keep normal web images below roughly **300 KB** where practical and use modern formats such as WebP for large photographs.
 
-All non-critical page images should use `loading="lazy"`.
+The two largest member portraits from the original site are already replaced by optimized WebP versions under `assets/people/`. Non-critical page images use lazy loading.
 
 ## Deployment
 
@@ -151,10 +168,11 @@ Before merging a large redesign:
 ```bash
 git status
 git pull
+node scripts/check-site.mjs
 python3 -m http.server 8000
 ```
 
-Review every page at desktop and mobile widths, then merge the feature branch into `main`.
+Review every page at desktop and mobile widths, then merge the feature branch into `main` only after approval.
 
 ## Contact
 
@@ -164,7 +182,3 @@ Kwame Nkrumah University of Science and Technology
 Kumasi, Ghana
 
 Email: [ekaasare@knust.edu.gh](mailto:ekaasare@knust.edu.gh)
-
-## License
-
-See the repository `LICENSE` file for licensing information.
