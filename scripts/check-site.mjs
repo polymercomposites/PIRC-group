@@ -12,6 +12,7 @@ const publicPages = [
   'pi.html',
   'members.html',
   'research.html',
+  'projects.html',
   'publications.html',
   'funding.html',
   'news.html',
