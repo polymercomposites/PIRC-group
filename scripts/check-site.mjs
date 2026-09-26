@@ -27,6 +27,7 @@ const requiredFiles = [
   'main.js',
   'data/members.json',
   'data/publications.json',
+  'data/news.json',
   'favicon.svg',
   'site.webmanifest',
   'robots.txt',
@@ -63,7 +64,6 @@ function resolveLocalReference(fromFile, rawReference) {
   if (reference.startsWith(projectPath)) {
     reference = reference.slice(projectPath.length);
   } else if (reference.startsWith('/')) {
-    // A different site-root absolute URL is outside this project.
     return null;
   }
 
@@ -166,6 +166,26 @@ try {
   error(`data/publications.json: invalid JSON (${err.message})`);
 }
 
+try {
+  const news = JSON.parse(read('data/news.json'));
+  if (!Array.isArray(news) || news.length === 0) {
+    error('data/news.json: expected a non-empty array');
+  } else {
+    news.forEach((item, index) => {
+      const label = `data/news.json[${index}]`;
+      for (const field of ['date', 'label', 'title', 'summary']) {
+        if (!item[field] || typeof item[field] !== 'string') error(`${label}: missing or invalid ${field}`);
+      }
+      if (!/^\d{4}-\d{2}(?:-\d{2})?$/.test(item.date || '')) error(`${label}: date must use YYYY-MM or YYYY-MM-DD`);
+      if (item.url !== null && item.url !== undefined && !/^https:\/\//i.test(item.url)) {
+        error(`${label}: url must be null or an https URL`);
+      }
+    });
+  }
+} catch (err) {
+  error(`data/news.json: invalid JSON (${err.message})`);
+}
+
 const sitemap = read('sitemap.xml');
 for (const page of publicPages) {
   const expected = page === 'index.html'
@@ -179,7 +199,6 @@ if (!robots.includes('https://polymercomposites.github.io/PIRC-group/sitemap.xml
   error('robots.txt: sitemap URL is missing or incorrect');
 }
 
-// Large images are not fatal, but flag them so future uploads stay web-friendly.
 function walkImages(directory = root, prefix = '') {
   for (const entry of readdirSync(directory)) {
     if (entry === '.git' || entry === 'node_modules') continue;
