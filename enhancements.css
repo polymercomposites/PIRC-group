@@ -123,6 +123,48 @@
     margin-top: 1.2rem;
 }
 
+/* Homepage research cards: generated research-area imagery */
+.research-card {
+    overflow: hidden;
+}
+
+.research-card::before {
+    content: "";
+    display: block;
+    width: calc(100% + 3.6rem);
+    aspect-ratio: 4 / 3;
+    margin: -1.8rem -1.8rem 1.55rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid var(--border);
+    transition: transform 280ms ease;
+}
+
+.research-card:nth-child(1)::before {
+    background-image: url("assets/research/polymer-composites.png");
+}
+
+.research-card:nth-child(2)::before {
+    background-image: url("assets/research/sustainable-materials.png");
+}
+
+.research-card:nth-child(3)::before {
+    background-image: url("assets/research/ai-computational-materials.png");
+}
+
+.research-card:nth-child(4)::before {
+    background-image: url("assets/research/advanced-manufacturing.png");
+}
+
+.research-card:hover::before {
+    transform: scale(1.025);
+}
+
+.research-card .card-number {
+    margin-top: 0.1rem;
+}
+
 @media (max-width: 900px) {
     .home-news-grid {
         grid-template-columns: 1fr;
@@ -156,6 +198,10 @@
 
     .result-count {
         white-space: normal;
+    }
+
+    .research-card::before {
+        aspect-ratio: 16 / 10;
     }
 }
 
