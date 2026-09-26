@@ -37,10 +37,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    const jsonCache = new Map();
+
     async function loadJson(path) {
-        const response = await fetch(path, { cache: 'no-store' });
-        if (!response.ok) throw new Error(`Unable to load ${path}`);
-        return response.json();
+        if (!jsonCache.has(path)) {
+            jsonCache.set(path, fetch(path, { cache: 'no-store' }).then((response) => {
+                if (!response.ok) throw new Error(`Unable to load ${path}`);
+                return response.json();
+            }));
+        }
+        return jsonCache.get(path);
     }
 
     function createStatus(message, isError = false) {
@@ -48,6 +54,31 @@ document.addEventListener('DOMContentLoaded', function () {
         status.className = `data-status${isError ? ' error' : ''}`;
         status.textContent = message;
         return status;
+    }
+
+    function createPublicationCard(pub) {
+        const article = document.createElement('article');
+        article.className = 'publication-card';
+
+        const year = document.createElement('p');
+        year.className = 'publication-year';
+        year.textContent = pub.year;
+
+        const heading = document.createElement('h3');
+        heading.textContent = pub.title;
+
+        const journal = document.createElement('p');
+        journal.className = 'publication-journal';
+        journal.textContent = pub.journal;
+
+        const link = document.createElement('a');
+        link.href = pub.doi;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = 'View publication ↗';
+
+        article.append(year, heading, journal, link);
+        return article;
     }
 
     async function initializeMembers() {
@@ -221,6 +252,77 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    async function initializeHomepagePublications() {
+        const container = document.getElementById('homepage-publications');
+        if (!container) return;
+
+        container.replaceChildren(createStatus('Loading recent publications…'));
+
+        try {
+            const publications = await loadJson('data/publications.json');
+            const recent = [...publications]
+                .sort((a, b) => Number(b.year) - Number(a.year))
+                .slice(0, 3);
+            container.replaceChildren(...recent.map(createPublicationCard));
+        } catch (error) {
+            container.replaceChildren(createStatus('Recent publications could not be loaded.', true));
+            console.error(error);
+        }
+    }
+
+    function createNewsCard(item, compact = false) {
+        const article = document.createElement('article');
+        article.className = compact ? 'home-news-card' : 'news-card-v2';
+
+        const date = document.createElement('time');
+        date.dateTime = item.date;
+        date.className = compact ? 'home-news-date' : 'news-date';
+        date.textContent = item.label;
+
+        const content = document.createElement('div');
+        const heading = document.createElement(compact ? 'h3' : 'h2');
+        heading.textContent = item.title;
+        const summary = document.createElement('p');
+        summary.textContent = item.summary;
+        content.append(heading, summary);
+
+        if (item.url) {
+            const link = document.createElement('a');
+            link.href = item.url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.className = compact ? 'text-link' : 'publication-link';
+            link.textContent = `${item.linkLabel || 'Learn more'} ↗`;
+            content.appendChild(link);
+        }
+
+        article.append(date, content);
+        return article;
+    }
+
+    async function initializeNews() {
+        const fullList = document.getElementById('news-list');
+        const homeList = document.getElementById('homepage-news');
+        if (!fullList && !homeList) return;
+
+        if (fullList) fullList.replaceChildren(createStatus('Loading group updates…'));
+        if (homeList) homeList.replaceChildren(createStatus('Loading latest updates…'));
+
+        try {
+            const news = await loadJson('data/news.json');
+            const sorted = [...news].sort((a, b) => String(b.date).localeCompare(String(a.date)));
+
+            if (fullList) fullList.replaceChildren(...sorted.map((item) => createNewsCard(item)));
+            if (homeList) homeList.replaceChildren(...sorted.slice(0, 3).map((item) => createNewsCard(item, true)));
+        } catch (error) {
+            if (fullList) fullList.replaceChildren(createStatus('Group updates could not be loaded.', true));
+            if (homeList) homeList.replaceChildren(createStatus('Latest updates could not be loaded.', true));
+            console.error(error);
+        }
+    }
+
     initializeMembers();
     initializePublications();
+    initializeHomepagePublications();
+    initializeNews();
 });
