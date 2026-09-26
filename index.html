@@ -3,85 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIRC Group</title>
+    <meta name="description" content="Polymer Innovation Research and Consultancy (PIRC) Group at Kwame Nkrumah University of Science and Technology. Research in polymer composites, sustainable materials, computational materials engineering, machine learning and advanced manufacturing.">
+    <meta name="keywords" content="PIRC, polymer research, polymer composites, sustainable materials, KNUST, materials science, machine learning, advanced manufacturing">
+    <meta name="author" content="PIRC Group">
+    <title>PIRC Group | Polymer Innovation Research & Consultancy</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">PIRC Group</div>
-            <button class="nav-toggle" aria-label="Toggle navigation">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <a class="brand" href="index.html" aria-label="PIRC Group home">
+                <span class="brand-mark" aria-hidden="true">P</span>
+                <span class="brand-text">
+                    <span class="brand-name">PIRC</span>
+                    <span class="brand-subtitle">Polymer Innovation Research &amp; Consultancy</span>
+                </span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
                 <span class="hamburger"></span>
             </button>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
+
+            <ul class="nav-menu" id="primary-navigation">
+                <li><a class="active" href="index.html" aria-current="page">Home</a></li>
                 <li><a href="pi.html">PI</a></li>
-                <li><a href="members.html">Members</a></li>
+                <li><a href="members.html">People</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="publications.html">Publications</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="funding.html">Funding</a></li>
+                <li><a href="funding.html">Opportunities</a></li>
                 <li><a href="news.html">News</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section id="home" class="section active">
-            <h1>Welcome to PIRC</h1>
-            <p>At Polymer Innovation Research and Consultancy (PIRC), we assist clients in selecting the most suitable polymers for their specific applications. Our team of experts has extensive knowledge of polymer properties, cost, and performance requirements, ensuring that clients receive tailored solutions that meet their needs.</p>
-            <h2>Our Services</h2>
-            <ul>
-                <li>Optimized materials selection and development</li>
-                <li>Polymer processing and manufacturing</li>
-                <li>Polymer material characterization and testing</li>
-                <li>Research and development of new polymer materials</li>
-                <li>Consultation on polymer applications and performance</li>
-                <li>Collaboration with industry partners for innovative solutions</li>
-            </ul>
-            <br>
-            <p>We are committed to delivering high-quality results and helping our clients achieve their goals.</p>
-            <br>
-            <div class="cta-buttons">
-                <a href="members.html" class="cta-button">Meet Our Team</a>
-                <a href="funding.html" class="cta-button">Contact Us</a>
-                
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="hero-background" aria-hidden="true"></div>
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <p class="eyebrow">Kwame Nkrumah University of Science and Technology</p>
+                    <h1>Engineering the next generation of <span class="accent-text">polymer materials.</span></h1>
+                    <p class="hero-lead">The Polymer Innovation Research and Consultancy (PIRC) Group advances sustainable polymers, composites, computational materials engineering and data-driven materials discovery.</p>
+
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="research.html">Explore our research</a>
+                        <a class="button button-secondary" href="members.html">Meet the team</a>
+                    </div>
+
+                    <div class="hero-tags" aria-label="Research areas">
+                        <span>Polymer Composites</span>
+                        <span>Sustainable Materials</span>
+                        <span>Machine Learning</span>
+                        <span>Advanced Manufacturing</span>
+                    </div>
+                </div>
+
+                <aside class="hero-panel">
+                    <p class="panel-label">Our mission</p>
+                    <h2>From fundamental materials science to real-world engineering solutions.</h2>
+                    <p>We combine experimentation, computational methods and emerging artificial intelligence tools to understand, design and improve polymer-based materials.</p>
+                    <a class="text-link" href="research.html">Discover what we work on <span aria-hidden="true">→</span></a>
+                </aside>
             </div>
         </section>
 
-        <section id="pi" class="section"></section>
-        <section id="members" class="section"></section>
-        
-        <section id="research" class="section">
-            <h2>Research Areas</h2>
-            <ul>
-                <li>Polymer composites</li>
-                <li>Biodegradable materials</li>
-                <li>Industrial applications</li>
-                <li>Material characterization</li>
-                <li>Eco-friendly product development</li>
-            </ul>
+        <section class="section section-light">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Research</p>
+                        <h2>Connecting materials, computation and sustainability</h2>
+                    </div>
+                    <p class="section-intro">Our work spans experimental materials development, computational modeling and intelligent approaches for designing higher-performance and more sustainable polymer systems.</p>
+                </div>
+
+                <div class="research-grid">
+                    <article class="research-card">
+                        <div class="card-number">01</div>
+                        <h3>Polymer Composites</h3>
+                        <p>Designing and characterizing polymer composite systems for improved mechanical performance, functionality and engineering applications.</p>
+                        <a href="research.html" class="card-link">Learn more <span aria-hidden="true">→</span></a>
+                    </article>
+
+                    <article class="research-card">
+                        <div class="card-number">02</div>
+                        <h3>Sustainable Materials</h3>
+                        <p>Developing renewable, bio-based and circular material systems with reduced environmental impact and practical engineering value.</p>
+                        <a href="research.html" class="card-link">Learn more <span aria-hidden="true">→</span></a>
+                    </article>
+
+                    <article class="research-card">
+                        <div class="card-number">03</div>
+                        <h3>AI &amp; Computational Materials</h3>
+                        <p>Applying machine learning, simulation and computational approaches to understand structure-property relationships and accelerate materials discovery.</p>
+                        <a href="research.html" class="card-link">Learn more <span aria-hidden="true">→</span></a>
+                    </article>
+
+                    <article class="research-card">
+                        <div class="card-number">04</div>
+                        <h3>Advanced Manufacturing</h3>
+                        <p>Exploring processing and manufacturing methods that enable scalable, high-performance and sustainable polymer products.</p>
+                        <a href="research.html" class="card-link">Learn more <span aria-hidden="true">→</span></a>
+                    </article>
+                </div>
+            </div>
         </section>
-        
-        <section id="publications" class="section">
-            <h2>Publications</h2>
-            <ul id="publication-list">
-                <!-- List items will be dynamically added by main.js -->
-            </ul>
+
+        <section class="section section-dark">
+            <div class="container split-layout">
+                <div class="split-heading">
+                    <p class="eyebrow eyebrow-light">Research approach</p>
+                    <h2>Building materials knowledge across scales.</h2>
+                </div>
+
+                <div class="split-content">
+                    <p class="large-text">PIRC brings together materials science, engineering, computation and sustainability to solve challenging problems involving polymer-based systems.</p>
+
+                    <div class="approach-list">
+                        <div class="approach-item">
+                            <span class="approach-index">01</span>
+                            <div>
+                                <h3>Experiment</h3>
+                                <p>Develop, process and characterize polymer and composite materials.</p>
+                            </div>
+                        </div>
+
+                        <div class="approach-item">
+                            <span class="approach-index">02</span>
+                            <div>
+                                <h3>Model</h3>
+                                <p>Use computational tools to investigate material behavior across multiple length scales.</p>
+                            </div>
+                        </div>
+
+                        <div class="approach-item">
+                            <span class="approach-index">03</span>
+                            <div>
+                                <h3>Predict</h3>
+                                <p>Apply data-driven and machine-learning approaches to accelerate materials development.</p>
+                            </div>
+                        </div>
+
+                        <div class="approach-item">
+                            <span class="approach-index">04</span>
+                            <div>
+                                <h3>Translate</h3>
+                                <p>Connect research discoveries with engineering, manufacturing and industrial applications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        
-        <section id="gallery" class="section"></section>
-        <section id="funding" class="section"></section>
-        <section id="news" class="section"></section>
-        <section id="contact" class="section"></section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Capabilities</p>
+                        <h2>Research and consultancy</h2>
+                    </div>
+                    <p class="section-intro">PIRC supports academic and industry partners across materials development, characterization, computational analysis and engineering problem-solving.</p>
+                </div>
+
+                <div class="capability-grid">
+                    <article class="capability-card">
+                        <h3>Materials Selection</h3>
+                        <p>Selection and optimization of polymer systems based on application, performance and processing requirements.</p>
+                    </article>
+                    <article class="capability-card">
+                        <h3>Materials Development</h3>
+                        <p>Development of new polymer formulations, composite systems and sustainable material solutions.</p>
+                    </article>
+                    <article class="capability-card">
+                        <h3>Processing &amp; Manufacturing</h3>
+                        <p>Investigation of processing routes and manufacturing strategies for polymer-based products.</p>
+                    </article>
+                    <article class="capability-card">
+                        <h3>Characterization &amp; Testing</h3>
+                        <p>Evaluation of mechanical, physical and functional material properties.</p>
+                    </article>
+                    <article class="capability-card">
+                        <h3>Computational Analysis</h3>
+                        <p>Simulation, modeling and data-driven analysis of materials and structure-property relationships.</p>
+                    </article>
+                    <article class="capability-card">
+                        <h3>Industry Collaboration</h3>
+                        <p>Collaborative research and technical support for materials challenges and product innovation.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Recent work</p>
+                        <h2>Selected publications</h2>
+                    </div>
+                    <a class="text-link section-link" href="publications.html">View all publications <span aria-hidden="true">→</span></a>
+                </div>
+
+                <div class="publication-preview">
+                    <article class="publication-card">
+                        <p class="publication-year">2025</p>
+                        <h3>Effect of Partial Replacement of CaCO3 with Palm Kernel Shell Particles on the Mechanical Properties of PKS/CaCO3/HDPE Hybrid Composites</h3>
+                        <p class="publication-journal">Results in Materials</p>
+                        <a href="https://doi.org/10.1016/j.rinma.2025.100668" target="_blank" rel="noopener noreferrer">View publication <span aria-hidden="true">↗</span></a>
+                    </article>
+
+                    <article class="publication-card">
+                        <p class="publication-year">2025</p>
+                        <h3>Development and Characterization of Pineapple Fiber-Based Absorbent Cores for Eco-friendly Sanitary Pads</h3>
+                        <p class="publication-journal">Fibers and Polymers</p>
+                        <a href="https://doi.org/10.1007/s12221-025-00162-y" target="_blank" rel="noopener noreferrer">View publication <span aria-hidden="true">↗</span></a>
+                    </article>
+
+                    <article class="publication-card">
+                        <p class="publication-year">2025</p>
+                        <h3>Synergistic effects of micro- and macro-sized palm kernel shell fillers on the tensile properties of HDPE composites</h3>
+                        <p class="publication-journal">Royal Society Open Science</p>
+                        <a href="https://doi.org/10.1098/rsos.241111" target="_blank" rel="noopener noreferrer">View publication <span aria-hidden="true">↗</span></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container people-feature">
+                <div>
+                    <p class="eyebrow">Our community</p>
+                    <h2>Researchers working across disciplines and borders.</h2>
+                </div>
+                <div>
+                    <p class="large-text">PIRC connects researchers working in polymer engineering, sustainable materials, artificial intelligence, computational science, energy materials and advanced manufacturing.</p>
+                    <a class="button button-outline" href="members.html">Meet our researchers</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="collaboration-section">
+            <div class="container collaboration-card">
+                <div>
+                    <p class="eyebrow eyebrow-light">Work with us</p>
+                    <h2>Interested in research, collaboration or materials innovation?</h2>
+                    <p>We welcome conversations with students, researchers, universities and industry partners interested in polymer materials and related technologies.</p>
+                </div>
+
+                <div class="collaboration-actions">
+                    <a class="button button-light" href="mailto:ekaasare@knust.edu.gh">Contact PIRC</a>
+                    <a class="button button-ghost" href="funding.html">View opportunities</a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>© 2025 PIRC Group, Kwame Nkrumah University of Science and Technology. All rights reserved.</p>
-        <p>
-            <a href="mailto:ekaasare@knust.edu.gh">Contact Us</a> |
-            <a href="https://www.knust.edu.gh" target="_blank">Kwame Nkrumah University of Science and Technology</a>
-        </p>
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a class="brand footer-logo" href="index.html">
+                    <span class="brand-mark" aria-hidden="true">P</span>
+                    <span class="brand-text">
+                        <span class="brand-name">PIRC</span>
+                        <span class="brand-subtitle">Polymer Innovation Research &amp; Consultancy</span>
+                    </span>
+                </a>
+                <p>Advancing polymer materials through research, computation, sustainability and engineering innovation.</p>
+            </div>
+
+            <div class="footer-column">
+                <h2>Explore</h2>
+                <ul>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="members.html">People</a></li>
+                    <li><a href="news.html">News</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h2>Group</h2>
+                <ul>
+                    <li><a href="pi.html">Principal Investigator</a></li>
+                    <li><a href="funding.html">Opportunities</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="mailto:ekaasare@knust.edu.gh">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h2>Institution</h2>
+                <p>Kwame Nkrumah University of Science and Technology<br>Kumasi, Ghana</p>
+                <a class="footer-external-link" href="https://www.knust.edu.gh" target="_blank" rel="noopener noreferrer">Visit KNUST <span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>© 2026 Polymer Innovation Research &amp; Consultancy Group. All rights reserved.</p>
+            <p>KNUST · Kumasi, Ghana</p>
+        </div>
     </footer>
+
     <script src="main.js"></script>
 </body>
 </html>
