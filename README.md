@@ -1,83 +1,201 @@
-# Polymer Innovation research & Consultancy (PIRC) Group Website
+# PIRC Group Website
 
-This is the official website for the PIRC Research Group at Kwame Nkrumah University of Science and Technology, showcasing our Principal Investigator, team members, research, publications, funding, and news.
+Official website of the **Polymer Innovation Research & Consultancy (PIRC) Group** at the Kwame Nkrumah University of Science and Technology (KNUST), Kumasi, Ghana.
 
-## Setup Instructions
+The site presents the group’s research, people, publications, funding partners, opportunities, news, gallery and collaboration contact information. It is intentionally lightweight: plain HTML, CSS and JavaScript deployed through GitHub Pages.
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/research-group-website.git
-   ```
+## Production site
 
-2. **Customize Content**:
-   - Update HTML files (`index.html`, `pi.html`, `members.html`, `research.html`, `publications.html`, `funding.html`, `news.html`) with your group's details.
-   - Add member images to the `images/` folder (recommended: 150x150px, JPEG).
-   - Replace `images/favicon.ico` with your group's or institution’s favicon.
-   - Modify `css/style.css` for colors or styling (e.g., change `#003087` to your institution’s color).
-   - Optionally, use `js/main.js` to load publications dynamically from a JSON file or API.
+https://polymercomposites.github.io/PIRC-group/
 
-3. **Host on GitHub Pages**:
-   - Push the repository to GitHub:
-     ```bash
-     git add .
-     git commit -m "Initial commit"
-     git push -u origin main
-     ```
-   - Go to repository settings, scroll to "GitHub Pages," and select the `main` branch as the source.
-   - Your website will be live at `https://your-username.github.io/research-group-website`.
+## Technology
 
-4. **Dependencies**:
-   - No external dependencies. Uses plain HTML, CSS, and JavaScript.
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- JSON content files for frequently updated data
+- GitHub Pages / GitHub Actions
+- No framework or runtime dependency required in production
 
-## Folder Structure
+## Project structure
+
+```text
+PIRC-group/
+├── index.html                 # Homepage
+├── pi.html                    # Principal Investigator
+├── members.html               # Searchable people directory
+├── research.html              # Research themes
+├── publications.html          # Searchable publications
+├── funding.html               # Opportunities and funding
+├── news.html                  # Group news
+├── gallery.html               # Gallery
+├── contact.html               # Contact and collaboration routes
+├── 404.html                   # GitHub Pages 404 page
+├── style.css                  # Main design system
+├── pages.css                  # Interior-page styles
+├── enhancements.css           # Search/filter + accessibility enhancements
+├── main.js                    # Navigation + data rendering
+├── data/
+│   ├── members.json           # People data
+│   ├── publications.json      # Publication data
+│   └── news.json              # News/update data
+├── assets/people/             # Optimized member portraits
+├── scripts/check-site.mjs     # Zero-dependency site integrity checker
+├── favicon.svg                # PIRC favicon
+├── site.webmanifest           # Web app metadata
+├── robots.txt                 # Search crawler rules
+├── sitemap.xml                # Search sitemap
+└── .github/workflows/         # Pages deployment + quality checks
 ```
-research-group-website/
-├── index.html          # Homepage
-├── pi.html             # Principal Investigator page
-├── members.html        # Group Members page
-├── research.html       # Research page
-├── publications.html   # Publications page
-├── funding.html        # Funding and Openings page
-├── news.html           # News page
-├── css/
-│   └── style.css       # Stylesheet
-├── js/
-│   └── main.js         # JavaScript for interactivity
-├── images/             # Store member images and favicon
-└── README.md           # This file
+
+## Updating people
+
+Edit `data/members.json`.
+
+```json
+{
+  "name": "Example Researcher",
+  "degree": "PhD",
+  "role": "Researcher",
+  "image": "assets/people/example.webp",
+  "initials": "ER",
+  "research": "Research interests and expertise.",
+  "affiliation": "Institution, Country"
+}
 ```
 
-## Making It Functional for Visitors
-- **Content Updates**: Regularly update the publications, funding, and news pages to keep information current.
-- **Accessibility**: Images have `alt` text, and the site is keyboard-navigable. Ensure high-contrast colors for readability.
-- **SEO**: Meta tags are included in each HTML file. Update the description and keywords to reflect your group.
-- **Images**: Optimize images (e.g., compress to <100KB) and use `loading="lazy"` for faster page loads.
-- **Analytics**: Add Google Analytics to each HTML file:
-  ```html
-  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
-  <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'YOUR-GA-ID');
-  </script>
-  ```
-- **Contact Form**: Optionally, add a Formspree form to `funding.html` or a new contact page:
-  ```html
-  <form action="https://formspree.io/f/your-form-id" method="POST">
-      <label>Name: <input type="text" name="name" required></label>
-      <label>Email: <input type="email" name="email" required></label>
-      <label>Message: <textarea name="message" required></textarea></label>
-      <button type="submit">Send</button>
-  </form>
-  ```
-- **Dynamic Content**: Use `main.js` to fetch publications or news from a JSON file or API.
+If a photo is not available, set `image` to `null`; the site will display the initials placeholder instead.
 
-## Customization Tips
-- Replace placeholder images in `images/` with real member photos.
-- Update colors in `style.css` to match your institution’s branding (e.g., change `#003087` to your color).
-- Add a favicon (`images/favicon.ico`) for branding.
-- Extend `main.js` to fetch data dynamically (e.g., publications or news from a Google Sheet or API).
+## Updating publications
 
-## License
-MIT License. See LICENSE file for details.
+Edit `data/publications.json`.
+
+```json
+{
+  "year": 2026,
+  "title": "Publication title",
+  "authors": "Author One, Author Two",
+  "journal": "Journal Name",
+  "details": "Volume, issue, pages",
+  "doi": "https://doi.org/..."
+}
+```
+
+The publications page automatically builds its search index and year filter from this file. The homepage also displays the latest three entries from the same data.
+
+## Updating news
+
+Edit `data/news.json`.
+
+```json
+{
+  "date": "2026-09",
+  "label": "September 2026",
+  "title": "News headline",
+  "summary": "Short description of the update.",
+  "url": null,
+  "linkLabel": null
+}
+```
+
+Use an HTTPS URL and link label when an update should link to a paper or external page. The news page and homepage latest-updates section both read from this file.
+
+## Updating other content
+
+- Research themes: `research.html`
+- Opportunities and funding partners: `funding.html`
+- Gallery captions/images: `gallery.html`
+- Principal Investigator profile: `pi.html`
+- Contact details and enquiry routes: `contact.html`
+- Homepage research/capability copy: `index.html`
+
+## Codespaces or local preview
+
+From the repository root:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open port `8000` in the browser. In GitHub Codespaces, use the **Ports** panel to open the forwarded URL.
+
+Because members, publications and news are loaded with `fetch()`, preview the site through an HTTP server rather than opening the HTML files directly with `file://`.
+
+## Quality checks
+
+Run the site integrity checker before merging:
+
+```bash
+node scripts/check-site.mjs
+```
+
+It checks:
+
+- required website files
+- broken internal `href` and `src` references
+- duplicate element IDs
+- core page metadata
+- member/publication/news JSON validity
+- member image references
+- DOI URL format
+- sitemap/robots consistency
+- oversized images (reported as non-blocking warnings)
+
+The same checker runs automatically in GitHub Actions on the V2 branch, on `main`, and on pull requests targeting `main`.
+
+## Development workflow
+
+Production is deployed from `main`. Make larger changes on a feature branch, preview and review them there, and merge only after approval.
+
+For the current redesign, development is taking place on:
+
+```text
+upgrade/pirc-website-v2
+```
+
+## Accessibility and SEO
+
+The V2 site includes:
+
+- keyboard-accessible mobile navigation
+- skip links
+- visible focus behavior
+- reduced-motion support
+- responsive layouts
+- descriptive image alt text
+- canonical URLs
+- Open Graph metadata
+- structured data on the homepage, PI and contact pages
+- `robots.txt`
+- `sitemap.xml`
+- custom 404 page
+
+## Image performance
+
+Member and gallery images should be compressed before adding them to the repository. As a general target, keep normal web images below roughly **300 KB** where practical and use modern formats such as WebP for large photographs.
+
+The two largest member portraits from the original site are already replaced by optimized WebP versions under `assets/people/`. Non-critical page images use lazy loading.
+
+## Deployment
+
+The repository is configured for GitHub Pages deployment. Changes merged to `main` are published through the existing Pages workflow.
+
+Before merging a large redesign:
+
+```bash
+git status
+git pull
+node scripts/check-site.mjs
+python3 -m http.server 8000
+```
+
+Review every page at desktop and mobile widths, then merge the feature branch into `main` only after approval.
+
+## Contact
+
+**Polymer Innovation Research & Consultancy Group**  
+Department of Materials Engineering  
+Kwame Nkrumah University of Science and Technology  
+Kumasi, Ghana
+
+Email: [ekaasare@knust.edu.gh](mailto:ekaasare@knust.edu.gh)

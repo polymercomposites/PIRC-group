@@ -1,0 +1,17 @@
+{
+  "name": "PIRC Group",
+  "short_name": "PIRC",
+  "description": "Polymer Innovation Research and Consultancy Group at KNUST.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8b1538",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
