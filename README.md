@@ -2,7 +2,7 @@
 
 Official website of the **Polymer Innovation Research & Consultancy (PIRC) Group** at the Kwame Nkrumah University of Science and Technology (KNUST), Kumasi, Ghana.
 
-The site presents the group’s research, people, publications, funding partners, opportunities, news and gallery. It is intentionally lightweight: plain HTML, CSS and JavaScript deployed through GitHub Pages.
+The site presents the group’s research, people, publications, funding partners, opportunities, news, gallery and collaboration contact information. It is intentionally lightweight: plain HTML, CSS and JavaScript deployed through GitHub Pages.
 
 ## Production site
 
@@ -29,6 +29,7 @@ PIRC-group/
 ├── funding.html               # Opportunities and funding
 ├── news.html                  # Group news
 ├── gallery.html               # Gallery
+├── contact.html               # Contact and collaboration routes
 ├── 404.html                   # GitHub Pages 404 page
 ├── style.css                  # Main design system
 ├── pages.css                  # Interior-page styles
@@ -105,6 +106,7 @@ Use an HTTPS URL and link label when an update should link to a paper or externa
 - Opportunities and funding partners: `funding.html`
 - Gallery captions/images: `gallery.html`
 - Principal Investigator profile: `pi.html`
+- Contact details and enquiry routes: `contact.html`
 - Homepage research/capability copy: `index.html`
 
 ## Codespaces or local preview
@@ -163,7 +165,7 @@ The V2 site includes:
 - descriptive image alt text
 - canonical URLs
 - Open Graph metadata
-- structured data on the homepage and PI page
+- structured data on the homepage, PI and contact pages
 - `robots.txt`
 - `sitemap.xml`
 - custom 404 page
