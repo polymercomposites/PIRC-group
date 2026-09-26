@@ -36,7 +36,8 @@ PIRC-group/
 ├── main.js                    # Navigation + data rendering
 ├── data/
 │   ├── members.json           # People data
-│   └── publications.json      # Publication data
+│   ├── publications.json      # Publication data
+│   └── news.json              # News/update data
 ├── assets/people/             # Optimized member portraits
 ├── scripts/check-site.mjs     # Zero-dependency site integrity checker
 ├── favicon.svg                # PIRC favicon
@@ -49,8 +50,6 @@ PIRC-group/
 ## Updating people
 
 Edit `data/members.json`.
-
-Each member supports these fields:
 
 ```json
 {
@@ -81,16 +80,32 @@ Edit `data/publications.json`.
 }
 ```
 
-The publications page automatically builds the year filter and search index from this file.
+The publications page automatically builds its search index and year filter from this file. The homepage also displays the latest three entries from the same data.
+
+## Updating news
+
+Edit `data/news.json`.
+
+```json
+{
+  "date": "2026-09",
+  "label": "September 2026",
+  "title": "News headline",
+  "summary": "Short description of the update.",
+  "url": null,
+  "linkLabel": null
+}
+```
+
+Use an HTTPS URL and link label when an update should link to a paper or external page. The news page and homepage latest-updates section both read from this file.
 
 ## Updating other content
 
 - Research themes: `research.html`
 - Opportunities and funding partners: `funding.html`
-- News and awards: `news.html`
 - Gallery captions/images: `gallery.html`
 - Principal Investigator profile: `pi.html`
-- Homepage featured content: `index.html`
+- Homepage research/capability copy: `index.html`
 
 ## Codespaces or local preview
 
@@ -102,7 +117,7 @@ python3 -m http.server 8000
 
 Then open port `8000` in the browser. In GitHub Codespaces, use the **Ports** panel to open the forwarded URL.
 
-Because members and publications are loaded with `fetch()`, preview the site through an HTTP server rather than opening the HTML files directly with `file://`.
+Because members, publications and news are loaded with `fetch()`, preview the site through an HTTP server rather than opening the HTML files directly with `file://`.
 
 ## Quality checks
 
@@ -118,7 +133,7 @@ It checks:
 - broken internal `href` and `src` references
 - duplicate element IDs
 - core page metadata
-- member/publication JSON validity
+- member/publication/news JSON validity
 - member image references
 - DOI URL format
 - sitemap/robots consistency
