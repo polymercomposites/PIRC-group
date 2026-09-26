@@ -1,0 +1,118 @@
+/* PIRC V2 progressive enhancements: searchable people/publications and motion preferences */
+
+.content-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 2rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: #fff;
+}
+
+.content-toolbar-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    flex: 1 1 480px;
+}
+
+.search-field,
+.filter-select {
+    min-height: 46px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    outline: none;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.search-field {
+    flex: 1 1 300px;
+    padding: 0.7rem 0.85rem;
+}
+
+.filter-select {
+    flex: 0 1 190px;
+    padding: 0.7rem 2.2rem 0.7rem 0.8rem;
+}
+
+.search-field:focus,
+.filter-select:focus {
+    border-color: var(--pirc-red);
+    box-shadow: 0 0 0 3px rgba(139, 21, 56, 0.12);
+}
+
+.result-count {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.data-status {
+    grid-column: 1 / -1;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface-muted);
+    color: var(--ink-soft);
+}
+
+.data-status.error {
+    border-color: rgba(139, 21, 56, 0.28);
+    background: var(--pirc-red-soft);
+    color: var(--pirc-red-dark);
+}
+
+.person-card[hidden],
+.publication-row[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 640px) {
+    .content-toolbar,
+    .content-toolbar-group {
+        align-items: stretch;
+    }
+
+    .content-toolbar {
+        flex-direction: column;
+    }
+
+    .content-toolbar-group {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .search-field,
+    .filter-select {
+        width: 100%;
+        flex-basis: auto;
+    }
+
+    .result-count {
+        white-space: normal;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
