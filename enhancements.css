@@ -1,4 +1,4 @@
-/* PIRC V2 progressive enhancements: searchable people/publications and motion preferences */
+/* PIRC V2 progressive enhancements: searchable content, homepage data cards and motion preferences */
 
 .content-toolbar {
     display: flex;
@@ -74,6 +74,63 @@
 .person-card[hidden],
 .publication-row[hidden] {
     display: none !important;
+}
+
+.home-news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.home-news-card {
+    min-height: 285px;
+    padding: 1.65rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: transform 170ms ease, box-shadow 170ms ease, border-color 170ms ease;
+}
+
+.home-news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: rgba(139, 21, 56, 0.25);
+}
+
+.home-news-date {
+    color: var(--pirc-red);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.home-news-card h3 {
+    color: var(--ink);
+    font-size: 1.3rem;
+    line-height: 1.22;
+}
+
+.home-news-card p {
+    margin-top: 0.8rem;
+    color: var(--ink-soft);
+}
+
+.home-news-card .text-link {
+    margin-top: 1.2rem;
+}
+
+@media (max-width: 900px) {
+    .home-news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-news-card {
+        min-height: auto;
+    }
 }
 
 @media (max-width: 640px) {
